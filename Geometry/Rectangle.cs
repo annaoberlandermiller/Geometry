@@ -6,22 +6,27 @@ using System.Threading.Tasks;
 
 namespace Geometry
 {
-	class Rectangle
+	class Rectangle : Quadrilateral
 	{
-		public double height { get; set; }
-		public double width { get; set; }
+		public override int GetArea()
+		{
+			return this.Side1 * this.Side2;  
+			//whenever you have a method in a base class and you think you'll need to do something different in teh derrived class, mark the derived class method as override
 
-		public double GetArea()
-		{
-			return height * width;
 		}
-		public double GetPerimeter()
+
+		public Rectangle(int length, int width)
 		{
-			return 2 * (height + width);
+			this.Side1 = length;
+			this.Side3 = length;
+			this.Side2 = width;
+			this.Side4 = width;
 		}
-		public void Print()
+
+
+	public Rectangle()
 		{
-			Console.WriteLine($"A rectangle with a height of {height} and a width of {width} has an area of {GetArea()} and a perimeter of {GetPerimeter()}.");
+
 		}
 	}
 
